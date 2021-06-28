@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Все новости{% endblock %}
+
+
+
+{% block content %}
+
+    <h1>Список статей</h1>
+
+    {% if all_news_list %}
+
+        {% for a in all_news_list %}
+            <a href="{% url 'NewsApp:detail' a.id %}">{{a.news_title}}<br></a>
+        {% endfor %}
+
+    {% else %}
+        Статьи не найдены
+    {% endif %}
+
+{% endblock %}
+
