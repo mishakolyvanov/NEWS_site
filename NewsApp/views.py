@@ -1,6 +1,6 @@
 from django.http import Http404
 from django.shortcuts import render
-from NewsApp.models import News
+from NewsApp.models import News, Tag
 
 
 def index(request):
@@ -13,12 +13,8 @@ def detail(request, news_id):
         a = News.objects.get(id=news_id)
         a.views_count += 1
         a.save()
+
     except:
         raise Http404("Статья не найдена!")
 
     return render(request, 'detail.html', {'news': a})
-
-
-
-
-
