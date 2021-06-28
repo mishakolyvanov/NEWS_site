@@ -10,7 +10,10 @@
 
 <p>{{ news.news_text }}</p>
 
-<em>{{ news.pub_date }}</em>
+<p class="tags">Tags: {{ news.tags.all|join:", " }}</p>
+<em>{{ news.pub_date }}<br></em>
+
+<p>{{ news.views_count }}&#128065</p>
 
 {% endblock %}
 
