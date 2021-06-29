@@ -5,8 +5,7 @@ from django.forms import ModelForm, TextInput, DateTimeInput, Textarea, DateTime
 class NewsForm(ModelForm):
     class Meta:
         model = News
-        fields = ['news_title', 'news_text', 'pub_date']
-
+        fields = ['news_title', 'news_text', 'tag', 'author']
         widgets = {
             "news_title": TextInput(attrs={
                 'placeholder': 'Title'
@@ -14,10 +13,13 @@ class NewsForm(ModelForm):
             "news_text": Textarea(attrs={
                 'placeholder': 'Text'
             }),
-            # "tag": TextInput(attrs={
-            #     'placeholder': 'Tags'
-            # })
-            "pub_date": Textarea(attrs={
-                'placeholder': 'data'
+            "tag": TextInput(attrs={
+                'placeholder': 'Tags'
+            }),
+            # "pub_date": DateTimeInput(attrs={
+            #     'type': 'datetime-local'
+            # }),
+            "author": TextInput(attrs={
+                'placeholder': 'author'
             })
         }

@@ -42,4 +42,3 @@ def create_news(request):
         'error': error
     }
     return render(request, 'create.html', data)
-

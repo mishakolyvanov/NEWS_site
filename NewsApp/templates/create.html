@@ -1,3 +1,28 @@
+{% extends 'base.html' %}
+
+    {% block title %}Добавить новость{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>Добавить новость</h1>
+        <form  method="post">
+            {% csrf_token %}
+            {{ form.news_title }}<br>
+            {{ form.news_text }}<br>
+{#            {{ form.pub_date }}<br>#}
+            {{ form.tag }}<br>
+            {{ form.author }}<br>
+            <span>{{ error }}</span>
+            <button type="submit">Добавить</button>
+        </form>
+    </div>
+
+{% endblock %}
+
+
+
+
+
 {#{% extends 'base.html' %}#}
 {##}
 {#{% block content %}#}
@@ -16,28 +41,9 @@
 {#      <input type="submit" value="Save" />#}
 {#    </form>#}
 {##}
-{#{% endblock content %}#}
+{#{% endblock content %}#}}
 
-{% extends 'base.html' %}
-
-    {% block title %}Добавить новость{% endblock %}
-
-{% block content %}
-    <div>
-        <h1>Добавить новость</h1>
-        <form  method="post">
-            {% csrf_token %}
-            {{ form.news_title }}<br>
-            {{ form.news_text }}<br>
-{#            {{ form.tag }}<br>#}
-            {{ form.pub_date }}<br>
 
 {#            <input type="text" placeholder="Title"><br>#}
 {#            <textarea class="form-control" placeholder="Text"></textarea><br>#}
 {#            <input type="text" placeholder="Tag"><br>#}
-            <span>{{ error }}</span>
-            <button type="submit">Добавить</button>
-        </form>
-    </div>
-
-{% endblock %}
