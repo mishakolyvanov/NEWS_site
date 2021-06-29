@@ -8,9 +8,11 @@
 
     {% if all_news_list %}
 
-        {% for a in all_news_list %}
-            <a href="{% url 'NewsApp:detail' a.id %}">{{a.news_title}}&nbsp;&nbsp;&nbsp{{ a.views_count }}&#128065;<br></a>
-
+        {% for item in all_news_list %}
+            <div style="padding: 10px; margin: 10px;">
+            <a href="{% url 'NewsApp:detail' item.id %}">{{item.news_title}}</a>
+            <p></p>{{ item.views_count }}&#128065;
+            </div>
         {% endfor %}
 
     {% else %}

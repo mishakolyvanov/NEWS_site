@@ -5,6 +5,8 @@
     <title>{% block title %}Мой сайт{% endblock %}</title>
 </head>
 <body>
+    <a href="{% url 'NewsApp:index' %}">List</a>
+    <a href="{% url 'NewsApp:stat' %}">Stat</a>
     {% block content %}{% endblock %}
 </body>
 </html>

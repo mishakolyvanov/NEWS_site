@@ -18,3 +18,7 @@ def detail(request, news_id):
         raise Http404("Статья не найдена!")
 
     return render(request, 'detail.html', {'news': a})
+
+def stat(request):
+    stat_news_list = News.objects.order_by('-views_count')
+    return render(request, 'stat.html', {'stat_news_list': stat_news_list})
