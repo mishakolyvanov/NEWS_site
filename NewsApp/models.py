@@ -10,9 +10,10 @@ class Tag(models.Model):
 
 
 class News(models.Model):
+    # csrf_token = models.TextField('Токен')
     news_title = models.CharField('Заголовок', max_length=200)
     news_text = models.TextField('Текст новости')
-    pub_date = models.DateTimeField('Время публикации новости')
+    pub_date = models.TextField('Время публикации новости')
     views_count = models.IntegerField(default=0)
     tag = models.ManyToManyField(Tag)
 

@@ -1,6 +1,7 @@
 from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from NewsApp.models import News, Tag
+from .forms import NewsForm
 
 
 def index(request):
@@ -19,6 +20,26 @@ def detail(request, news_id):
 
     return render(request, 'detail.html', {'news': a})
 
+
 def stat(request):
     stat_news_list = News.objects.order_by('-views_count')
     return render(request, 'stat.html', {'stat_news_list': stat_news_list})
+
+
+def create_news(request):
+    error = ''
+    if request.method == 'POST':
+        form = NewsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('NewsApp:index')
+        else:
+            error = 'error'
+
+    form = NewsForm
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'create.html', data)
+

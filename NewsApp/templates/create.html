@@ -1,0 +1,43 @@
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block content %}#}
+{#    <h1>New post</h1>#}
+{#    <form action="" method="post">{% csrf_token %}#}
+{#      {{ form.as_p }}#}
+{#        <div>#}
+{#        <input placeholder="Title">#}
+{#        </div>#}
+{#        <div>#}
+{#        <input placeholder="Text">#}
+{#        </div>#}
+{#        <div>#}
+{#        <input placeholder="Tag">#}
+{#        </div>#}
+{#      <input type="submit" value="Save" />#}
+{#    </form>#}
+{##}
+{#{% endblock content %}#}
+
+{% extends 'base.html' %}
+
+    {% block title %}Добавить новость{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>Добавить новость</h1>
+        <form  method="post">
+            {% csrf_token %}
+            {{ form.news_title }}<br>
+            {{ form.news_text }}<br>
+{#            {{ form.tag }}<br>#}
+            {{ form.pub_date }}<br>
+
+{#            <input type="text" placeholder="Title"><br>#}
+{#            <textarea class="form-control" placeholder="Text"></textarea><br>#}
+{#            <input type="text" placeholder="Tag"><br>#}
+            <span>{{ error }}</span>
+            <button type="submit">Добавить</button>
+        </form>
+    </div>
+
+{% endblock %}
