@@ -1,5 +1,6 @@
-from .models import News
+from .models import News, Tag
 from django.forms import ModelForm, TextInput, DateTimeInput, Textarea, DateTimeField
+from django import forms
 
 
 class NewsForm(ModelForm):
@@ -23,3 +24,17 @@ class NewsForm(ModelForm):
                 'placeholder': 'author'
             })
         }
+    tag = forms.ModelMultipleChoiceField(queryset=Tag.objects.all())
+
+# class TagForm(forms.ModelForm):
+#     class Meta:
+#         model = Tag
+#         fields = ['title']
+#         widgets = {
+#             "title": TextInput(attrs={
+#                 'placeholder': 'tag'
+#             })
+#         }
+
+
+
