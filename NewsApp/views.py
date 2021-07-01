@@ -1,6 +1,6 @@
 from django.http import Http404
 from django.shortcuts import render, redirect
-from NewsApp.models import News, Tag
+from NewsApp.models import News
 from .forms import NewsForm
 
 

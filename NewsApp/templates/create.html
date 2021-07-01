@@ -1,18 +1,30 @@
 {% extends 'base.html' %}
 
-    {% block title %}Добавить новость{% endblock %}
+{% block title %}Добавить новость{% endblock %}
 
 {% block content %}
-    <div>
-        <form  method="post">
+
+    <h2 class="header_text">Create news</h2>
+
+    <div class="news_container">
+        <form method="post">
             {% csrf_token %}
-            {{ form.news_title }}<br>
-            {{ form.news_text }}<br>
-{#            {{ form.pub_date }}<br>#}
-            {{ form.tag }}<br>
-            {{ form.author }}<br>
+            <div class="news_container">
+                {{ form.news_title }}<br>
+            </div>
+            <div class="news_container">
+                {{ form.news_text }}<br>
+            </div>
+            <div class="news_container">
+                {{ form.tag }}<br>
+            </div>
+            <div class="news_container">
+                {{ form.author }}<br>
+            </div>
             <span>{{ error }}</span>
-            <button type="submit">Добавить</button>
+            <div class="news_container">
+                <button type="submit">Добавить</button>
+            </div>
         </form>
     </div>
 

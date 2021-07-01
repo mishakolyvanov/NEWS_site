@@ -1,21 +1,17 @@
 {% extends 'base.html' %}
 
-{% block title %}{{news.news_title}}{% endblock %}
+{% block title %}{{ news.news_title }}{% endblock %}
 
 {% block content %}
 
-<div class="news_container">
-
-<h2>{{ news.news_title }}</h2>
-
-<p>{{ news.news_text }}</p>
-
-<p class="tags">Tags: {{ news.tag.all|join:", " }}</p>
-<em>{{ news.pub_date }}<br></em>
-
-<p>{{ news.views_count }}&#128065</p>
-
-</div>
+    <div class="news_container">
+        <h2>{{ news.news_title }}</h2>
+        <small>Date: {{ news.pub_date }}</small><br>
+        <p>Author: {{ news.author }}</p>
+        <pre class="news_text">{{ news.news_text }}</pre>
+        <p class="tags">Tags: {{ news.tag.all|join:", " }}</p>
+        <p>{{ news.views_count }}&#128065</p>
+    </div>
 
 {% endblock %}
 
