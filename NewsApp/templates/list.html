@@ -20,14 +20,13 @@
                     <tr>
                         <th scope="row"><a href="{% url 'NewsApp:detail' item.id %}">{{ item.news_title }}</a></th>
                         <td><s></s>{{ item.views_count }}&#128065;</td>
-                    </div>
                     </tr>
                 {% endfor %}
             {% else %}
                 Статьи не найдены
             {% endif %}
-    </tbody>
-    </table>
+            </tbody>
+        </table>
     </div>
 {% endblock %}
 
