@@ -16,45 +16,17 @@
                 {{ form.news_text }}<br>
             </div>
             <div class="news_container">
-                {{ form.tag }}<br>
+                {{ form.tags }}<br>
             </div>
             <div class="news_container">
                 {{ form.author }}<br>
             </div>
-            <span>{{ error }}</span>
             <div class="news_container">
                 <button type="submit">Добавить</button>
             </div>
+            <div class="error_text">{{ error }}</div>
         </form>
     </div>
 
 {% endblock %}
 
-
-
-
-
-{#{% extends 'base.html' %}#}
-{##}
-{#{% block content %}#}
-{#    <h1>New post</h1>#}
-{#    <form action="" method="post">{% csrf_token %}#}
-{#      {{ form.as_p }}#}
-{#        <div>#}
-{#        <input placeholder="Title">#}
-{#        </div>#}
-{#        <div>#}
-{#        <input placeholder="Text">#}
-{#        </div>#}
-{#        <div>#}
-{#        <input placeholder="Tag">#}
-{#        </div>#}
-{#      <input type="submit" value="Save" />#}
-{#    </form>#}
-{##}
-{#{% endblock content %}#}}
-
-
-{#            <input type="text" placeholder="Title"><br>#}
-{#            <textarea class="form-control" placeholder="Text"></textarea><br>#}
-{#            <input type="text" placeholder="Tag"><br>#}

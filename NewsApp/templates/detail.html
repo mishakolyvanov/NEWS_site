@@ -9,7 +9,11 @@
         <small>Date: {{ news.pub_date }}</small><br>
         <p>Author: {{ news.author }}</p>
         <pre class="news_text">{{ news.news_text }}</pre>
-        <p class="tags">Tags: {{ news.tag.all|join:", " }}</p>
+        <p class="tags">Tags:
+            {% for tag in news.tags.all %}
+                <a href="{% url 'NewsApp:tag_list' tag %}">{{ tag }}</a>
+            {% endfor %}
+        </p>
         <p>{{ news.views_count }}&#128065</p>
     </div>
 

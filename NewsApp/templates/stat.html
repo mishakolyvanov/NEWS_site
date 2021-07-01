@@ -18,7 +18,6 @@
             <tbody>
 
             {% if stat_news_list %}
-
                 {% for a in stat_news_list %}
                     <tr>
                         <th scope="row"><a href="{% url 'NewsApp:detail' a.id %}">{{ a.news_title }}</a></th>
@@ -27,7 +26,6 @@
                     </div>
                     </tr>
                 {% endfor %}
-
             {% else %}
                 Статьи не найдены
             {% endif %}

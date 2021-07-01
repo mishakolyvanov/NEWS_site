@@ -6,7 +6,12 @@ from .forms import NewsForm
 
 def index(request):
     all_news_list = News.objects.order_by('-pub_date')
-    return render(request, 'list.html', {'all_news_list': all_news_list})
+    return render(request, 'list.html', {'all_news_list': all_news_list, 'header': 'All News'})
+
+
+def tag_list(request, tag):
+    all_news_list = News.objects.filter(tags__name=tag).order_by('-pub_date')
+    return render(request, 'list.html', {'all_news_list': all_news_list, 'header': tag})
 
 
 def detail(request, news_id):
@@ -14,10 +19,8 @@ def detail(request, news_id):
         a = News.objects.get(id=news_id)
         a.views_count += 1
         a.save()
-
-    except:
+    except News.DoesNotExist:
         raise Http404("Статья не найдена!")
-
     return render(request, 'detail.html', {'news': a})
 
 
@@ -34,7 +37,7 @@ def create_news(request):
             form.save()
             return redirect('NewsApp:index')
         else:
-            error = 'error'
+            error = f'Ошибка в форме: {form.errors}'
 
     form = NewsForm
     data = {

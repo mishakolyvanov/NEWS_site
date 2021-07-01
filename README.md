@@ -1,1 +1,0 @@
-django-admin startproject news_site

@@ -1,12 +1,11 @@
-from .models import News, Tag
+from .models import News
 from django.forms import ModelForm, TextInput, Textarea
-from django import forms
 
 
 class NewsForm(ModelForm):
     class Meta:
         model = News
-        fields = ['news_title', 'news_text', 'tag', 'author']
+        fields = ['news_title', 'news_text', 'tags', 'author']
         widgets = {
             "news_title": TextInput(attrs={
                 'class': 'form-control',
@@ -16,7 +15,7 @@ class NewsForm(ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Text'
             }),
-            "tag": TextInput(attrs={
+            "tags": TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Tags'
             }),
@@ -25,19 +24,3 @@ class NewsForm(ModelForm):
                 'placeholder': 'Author'
             })
         }
-    tag = forms.ModelMultipleChoiceField(queryset=Tag.objects.all())
-
-
-
-# class TagForm(forms.ModelForm):
-#     class Meta:
-#         model = Tag
-#         fields = ['title']
-#         widgets = {
-#             "title": TextInput(attrs={
-#                 'placeholder': 'tag'
-#             })
-#         }
-
-
-
