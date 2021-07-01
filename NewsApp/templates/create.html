@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Добавить новость{% endblock %}
+
+{% block content %}
+
+    <h2 class="header_text">Create news</h2>
+
+    <div class="news_container">
+        <form method="post">
+            {% csrf_token %}
+            <div class="news_container">
+                {{ form.news_title }}<br>
+            </div>
+            <div class="news_container">
+                {{ form.news_text }}<br>
+            </div>
+            <div class="news_container">
+                {{ form.tags }}<br>
+            </div>
+            <div class="news_container">
+                {{ form.author }}<br>
+            </div>
+            <div class="news_container">
+                <button type="submit">Добавить</button>
+            </div>
+            <div class="error_text">{{ error }}</div>
+        </form>
+    </div>
+
+{% endblock %}
+

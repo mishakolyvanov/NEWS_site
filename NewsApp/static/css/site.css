@@ -1,0 +1,21 @@
+.table_container{
+    margin: 0 40px 0 40px;
+}
+
+.news_container{
+    margin: 0 90px 0 20px;
+}
+
+.header_text{
+    margin: 20px 20px 20px 20px;
+}
+
+.news_text{
+    white-space: pre-wrap;
+    font-family: 'Roboto';
+    font-size: 18px;
+}
+
+.error_text{
+    color: darkred;
+}
