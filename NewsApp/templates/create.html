@@ -4,7 +4,6 @@
 
 {% block content %}
     <div>
-        <h1>Добавить новость</h1>
         <form  method="post">
             {% csrf_token %}
             {{ form.news_title }}<br>

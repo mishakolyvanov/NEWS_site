@@ -4,18 +4,31 @@
 
 {% block content %}
 
-    <h1>Сатистика</h1>
+        <div class="table_container">
+        <table class="table table-striped table-hover" >
+            <thead>
+            <tr>
+                <th scope="col">News</th>
+                <th scope="col">Views</th>
+                <th scope="col">Date</th>
+            </tr>
+            </thead>
+            <tbody>
 
-    {% if stat_news_list %}
+            {% if stat_news_list %}
 
-        {% for a in stat_news_list %}
-            <a href="{% url 'NewsApp:detail' a.id %}">{{a.news_title}}&nbsp;&nbsp;&nbsp{{ a.views_count }}&#128065;<br></a>
+                {% for a in stat_news_list %}
+                    <tr>
+                        <th scope="row"><a href="{% url 'NewsApp:detail' a.id %}">{{a.news_title}}</a></th>
+                        <td><s></s>{{ a.views_count }}&#128065;</td>
+                        <td><s></s>{{ a.pub_date }}</td>
+                    </div>
+                    </tr>
+                {% endfor %}
 
-        {% endfor %}
-
-    {% else %}
-        Статьи не найдены
-    {% endif %}
+            {% else %}
+                Статьи не найдены
+            {% endif %}
 
 {% endblock %}
 

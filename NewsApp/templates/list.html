@@ -4,20 +4,29 @@
 
 {% block content %}
 
-    <h1>Список статей</h1>
+    <div class="table_container">
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+                <th scope="col">News</th>
+                <th scope="col">Views</th>
+            </tr>
+            </thead>
+            <tbody>
 
-    {% if all_news_list %}
-
-        {% for item in all_news_list %}
-            <div style="padding: 10px; margin: 10px;">
-            <a href="{% url 'NewsApp:detail' item.id %}">{{item.news_title}}</a>
-            <p></p>{{ item.views_count }}&#128065;
-            </div>
-        {% endfor %}
-
-    {% else %}
-        Статьи не найдены
-    {% endif %}
-
+            {% if all_news_list %}
+                {% for item in all_news_list %}
+                    <tr>
+                        <th scope="row"><a href="{% url 'NewsApp:detail' item.id %}">{{ item.news_title }}</a></th>
+                        <td><s></s>{{ item.views_count }}&#128065;</td>
+                    </div>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                Статьи не найдены
+            {% endif %}
+    </tbody>
+    </table>
+    </div>
 {% endblock %}
 
