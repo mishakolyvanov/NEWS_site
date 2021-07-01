@@ -1,3 +1,4 @@
+from django.db import transaction
 from django.http import Http404
 from django.shortcuts import render, redirect
 from NewsApp.models import News
@@ -16,9 +17,10 @@ def tag_list(request, tag):
 
 def detail(request, news_id):
     try:
-        a = News.objects.get(id=news_id)
-        a.views_count += 1
-        a.save()
+        with transaction.atomic():
+            a = News.objects.select_for_update().get(id=news_id)
+            a.views_count += 1
+            a.save()
     except News.DoesNotExist:
         raise Http404("Статья не найдена!")
     return render(request, 'detail.html', {'news': a})
