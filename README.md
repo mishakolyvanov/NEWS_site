@@ -1,10 +1,14 @@
-Создать новое окружение python -m venv venv
+# news_site
+Веб-приложение для просмотра и создания новостей.
 
-Активировать созданное окружение source venv/bin/activate, деактивировать - выполнить deactivate
+## Development workflow
+Создать новое окружение `python -m venv venv`
 
-Для установки всех зависимостей выполнить pip install -r requirements.txt
+Активировать созданное окружение `source venv/bin/activate`, деактивировать - выполнить `deactivate`
 
-Для запуска выполнить python manage.py runserver
+Для установки всех зависимостей выполнить `pip install -r requirements.txt`
+
+Для запуска выполнить `python manage.py runserver`
 
 Приложение работает на порту 8000
 
